@@ -15,7 +15,8 @@ return (
   <thead>
     <tr>
       <th id="hello" onClick={helloFunc} scope="col">#</th>
-      <th scope="col">First</th>
+      {/* <th scope="col">First</th> */}
+      <input scope="col" placeholder="First"></input>
       <th scope="col">Last</th>
       <th scope="col">Handle</th>
     </tr>
