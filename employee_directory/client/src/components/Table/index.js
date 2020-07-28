@@ -1,5 +1,6 @@
-import React from "react";
-import $ from "jquery";
+import React, {useState, useEffect, setState} from "react";
+import API from "../../utils/API";
+// import $ from "jquery";
 
 function Table() {
 
@@ -21,7 +22,7 @@ function Table() {
 
   // Loads all books and sets them to books
   function loadEmployees() {
-    API.loadEmployees()
+    API.getEmployees()
       .then(res => 
         setEmployees(res.data)
       )
@@ -31,7 +32,7 @@ function Table() {
   // Deletes a book from the database with a given id, then reloads books from the db
   function deleteEmployee(id) {
     API.deleteEmployee(id)
-      .then(res => loadBooks())
+      .then(res => loadEmployees())
       .catch(err => console.log(err));
   }
 
@@ -51,7 +52,7 @@ function Table() {
         author: formObject.author,
         synopsis: formObject.synopsis
       })
-        .then(res => loadBooks())
+        .then(res => loadEmployees())
         .catch(err => console.log(err));
     }
   };
@@ -60,7 +61,7 @@ return (
     <table className="table">
   <thead>
     <tr>
-      <th id="hello" onClick={helloFunc} scope="col">#</th>
+      <th id="hello" scope="col">#</th>
       {/* <th scope="col">First</th> */}
       <input scope="col" placeholder="First"></input>
       <th scope="col">Last</th>
