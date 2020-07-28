@@ -1,6 +1,6 @@
 // will take controller and use what it needs for specific routes
 const router = require("express").Router();
-const employeeController = require("../controller/employeeController");
+const employeeController = require("../../controller/employeeController");
 
 router.route("/")
 .get(employeeController.findAll)
