@@ -1,95 +1,45 @@
-import React, {useState, useEffect, setState} from "react";
+import React, { Children } from "react";
 import API from "../../utils/API";
+import Button from "../Button/index";
 // import $ from "jquery";
 
-function Table() {
+export function Table() {
 
-    // function helloFunc() {
+          // function helloFunc() {
     //     $("#hello").click(() => {
     //         console.log("hi");
     //     });
         
     // }
 
-      // Setting our component's initial state
-  const [employees, setEmployees] = useState([])
-  const [formObject, setFormObject] = useState({})
-
-  // Load all books and store them with setBooks
-  useEffect(() => {
-    loadEmployees()
-  }, [])
-
-  // Loads all books and sets them to books
-  function loadEmployees() {
-    API.getEmployees()
-      .then(res => 
-        setEmployees(res.data)
-      )
-      .catch(err => console.log(err));
-  };
-
-  // Deletes a book from the database with a given id, then reloads books from the db
-  function deleteEmployee(id) {
-    API.deleteEmployee(id)
-      .then(res => loadEmployees())
-      .catch(err => console.log(err));
-  }
-
-  // Handles updating component state when the user types into the input field
-  function handleInputChange(event) {
-    const { name, value } = event.target;
-    setFormObject({...formObject, [name]: value})
-  };
-
-  // When the form is submitted, use the API.saveBook method to save the book data
-  // Then reload books from the database
-  function handleFormSubmit(event) {
-    event.preventDefault();
-    if (formObject.title && formObject.author) {
-      API.saveEmployee({
-        name: formObject.name,
-        author: formObject.author,
-        synopsis: formObject.synopsis
-      })
-        .then(res => loadEmployees())
-        .catch(err => console.log(err));
-    }
-  };
-
-return (
+  return (
     <table className="table">
-  <thead>
-    <tr>
-      <th id="hello" scope="col">#</th>
-      {/* <th scope="col">First</th> */}
-      <input scope="col" placeholder="First"></input>
+      <thead>
+        <tr>
+      <th scope="col">First</th>
       <th scope="col">Last</th>
-      <th scope="col">Handle</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>@twitter</td>
-    </tr>
-  </tbody>
-</table>
-);
-};
+      <th scope="col">Employee ID</th>
+      <th scope="col">Employee Department</th>
+      <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
 
-export default Table;
+      </tbody>
+    </table>
+  );
+}
+
+
+
+// export function TableHeader ({children}) {
+// return <th scope="col">{children}</th>
+// }
+
+export function TableRow ({children}) {
+return <tr>{children}</tr>
+}
+
+export function TableData ({children}) {
+return <tr>{children}</tr> 
+}
