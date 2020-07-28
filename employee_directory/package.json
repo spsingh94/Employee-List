@@ -16,6 +16,7 @@
     "if-env": "^1.0.4"
   },
   "scripts": {
+    "seed": "node scripts/seedDB.js",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

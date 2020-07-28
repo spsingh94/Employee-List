@@ -3,7 +3,7 @@ import API from "../../utils/API";
 import Button from "../Button/index";
 // import $ from "jquery";
 
-export function Table() {
+export function Table({children}) {
 
           // function helloFunc() {
     //     $("#hello").click(() => {
@@ -23,9 +23,7 @@ export function Table() {
       <th scope="col"></th>
         </tr>
       </thead>
-      <tbody>
-
-      </tbody>
+      <tbody>{children}</tbody>
     </table>
   );
 }
@@ -41,5 +39,5 @@ return <tr>{children}</tr>
 }
 
 export function TableData ({children}) {
-return <tr>{children}</tr> 
+return <td>{children}</td> 
 }

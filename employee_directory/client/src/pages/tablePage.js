@@ -2,12 +2,12 @@ import React, {useState, useEffect} from 'react';
 // import Table from "../components/Table/index";
 import API from "../utils/API";
 import Button from "../components/Button";
-import {Table} from "../components/Table";
+import {Table, TableRow, TableData} from "../components/Table";
 
 function TablePage(props) {
 
-  const [employees, setEmployees] = useState([])
-  const [formObject, setFormObject] = useState({})
+  const [employees, setEmployees] = useState([]);
+  const [formObject, setFormObject] = useState({});
 
   useEffect(() => {
     loadEmployees()
@@ -53,6 +53,12 @@ function TablePage(props) {
         <br/>
 
         <Table>
+        <TableRow>
+            <TableData>Hi</TableData>
+            <TableData>Hi</TableData>
+            <TableData>Hi</TableData>
+            <TableData>Hi</TableData>
+        </TableRow>
         </Table>
         </>
     )
