@@ -47,7 +47,7 @@ function Table() {
     event.preventDefault();
     if (formObject.title && formObject.author) {
       API.saveEmployee({
-        title: formObject.title,
+        name: formObject.name,
         author: formObject.author,
         synopsis: formObject.synopsis
       })

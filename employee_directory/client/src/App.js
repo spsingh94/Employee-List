@@ -1,10 +1,12 @@
 import React from 'react';
-import './App.css';
-import Table from "./components/Table/index";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import tablePage from "./pages/tablePage";
 
 function App() {
   return (
-    <Table></Table>
+    <Router>
+    <Route path="/" component={tablePage} />
+    </Router>
   );
 }
 
