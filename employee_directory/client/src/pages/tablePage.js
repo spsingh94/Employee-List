@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 // import Table from "../components/Table/index";
 import API from "../utils/API";
-import Button from "../components/Button";
+// import Button from "../components/Button";
 import {Table, TableRow, TableData} from "../components/Table";
 
 function TablePage(props) {
@@ -15,8 +15,10 @@ function TablePage(props) {
 
   function loadEmployees() {
     API.getEmployees()
-      .then(res => 
-        setEmployees(res.data)
+      .then(res => {
+          setEmployees(res.data)
+        //   console.log(res.data)
+      }
       )
       .catch(err => console.log(err));
   };
@@ -51,17 +53,28 @@ function TablePage(props) {
         <h1 style={{textAlign:"center"}}>Employee Directory</h1>
         <br/>
         <br/>
-
+        {/* <Table>
+            {employees.length ? (
+              <TableRow>
+                {employees.map(employee => (
+                  <TableData key={employee._id}>
+                    {employee.firstName}
+                  </TableData>
+                ))}
+              </TableRow>
+            ) : (
+              <h4>No Results to Display</h4>
+            )}
+        </Table> */}
         <Table>
-        <TableRow>
-            <TableData>Hi</TableData>
-            <TableData>Hi</TableData>
-            <TableData>Hi</TableData>
-            <TableData>Hi</TableData>
-        </TableRow>
+            <TableRow>
+                <TableData>
+                    
+                </TableData>
+            </TableRow>
         </Table>
         </>
     )
-}
+};
 
 export default TablePage;
