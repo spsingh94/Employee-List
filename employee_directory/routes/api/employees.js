@@ -4,12 +4,12 @@ const employeeController = require("../../controller/employeeController");
 
 router.route("/")
 .get(employeeController.findAll)
-.post(employeeController.create)
+.post(employeeController.create);
 
-router.route("/:id")
-.get(employeeController.findById)
-.post(employeeController.update)
-.delete(employeeController.remove)
+// router.route("/:id")
+// .get(employeeController.findById)
+// .post(employeeController.update)
+// .delete(employeeController.remove)
 
 
 

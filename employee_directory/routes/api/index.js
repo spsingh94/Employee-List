@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const employeeRoutes = require("./api");
+const employeeRoutes = require("./employees");
 
 router.use("/employees", employeeRoutes);
 
