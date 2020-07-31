@@ -1,4 +1,4 @@
-import React, { Children } from "react";
+import React from "react";
 // import API from "../../utils/API";
 // import Button from "../Button/index";
 // import $ from "jquery";
@@ -27,11 +27,3 @@ return <tr>{children}</tr>
 export function TableData ({children}) {
 return <td>{children}</td> 
 }
-
-
-          // function helloFunc() {
-    //     $("#hello").click(() => {
-    //         console.log("hi");
-    //     });
-        
-    // }

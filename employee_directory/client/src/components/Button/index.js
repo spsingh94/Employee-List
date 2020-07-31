@@ -1,8 +1,8 @@
 import React from "react";
 
-function Button () {
+function Button (props) {
 return(
-    <button type="button" class="btn btn-primary">Delete</button>
+<button type="button" className="btn btn-primary" {...props}>{props.children}</button>
 )
 }
 
