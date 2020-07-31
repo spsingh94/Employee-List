@@ -4,10 +4,10 @@ import API from "../utils/API";
 // import Button from "../components/Button";
 import {Table, TableRow, TableData} from "../components/Table";
 
-function TablePage(props) {
+function TablePage() {
 
   const [employees, setEmployees] = useState([]);
-  // const [formObject, setFormObject] = useState({});
+  const [formObject, setFormObject] = useState({});
 
   useEffect(() => {
     loadEmployees()
@@ -15,37 +15,35 @@ function TablePage(props) {
 
   function loadEmployees() {
     API.getEmployees()
-      .then(res => {
+      .then(res => 
           setEmployees(res.data)
-        //   console.log(res.data)
-      }
       )
       .catch(err => console.log(err));
   };
 
-  // function deleteEmployee(id) {
-  //   API.deleteEmployee(id)
-  //     .then(res => loadEmployees())
-  //     .catch(err => console.log(err));
-  // }
+  function deleteEmployee(id) {
+    API.deleteEmployee(id)
+      .then(res => loadEmployees())
+      .catch(err => console.log(err));
+  }
 
-  // function handleInputChange(event) {
-  //   const { name, value } = event.target;
-  //   setFormObject({...formObject, [name]: value})
-  // };
+  function handleInputChange(event) {
+    const { name, value } = event.target;
+    setFormObject({...formObject, [name]: value})
+  };
 
-  // function handleFormSubmit(event) {
-  //   event.preventDefault();
-  //   if (formObject.title && formObject.author) {
-  //     API.saveEmployee({
-  //       name: formObject.name,
-  //       author: formObject.author,
-  //       synopsis: formObject.synopsis
-  //     })
-  //       .then(res => loadEmployees())
-  //       .catch(err => console.log(err));
-  //   }
-  // };
+  function handleFormSubmit(event) {
+    event.preventDefault();
+    if (formObject.title && formObject.author) {
+      API.saveEmployee({
+        name: formObject.name,
+        author: formObject.author,
+        synopsis: formObject.synopsis
+      })
+        .then(res => loadEmployees())
+        .catch(err => console.log(err));
+    }
+  };
 
     return (
         <>
@@ -53,12 +51,47 @@ function TablePage(props) {
         <h1 style={{textAlign:"center"}}>Employee Directory</h1>
         <br/>
         <br/>
-        <Table>
+        {/* <Table>
+          {employees.length ? (
             <TableRow>
-                <TableData>
-                    {employees}
-                </TableData>
+              <TableData>
+                    {employees.firstName}
+              </TableData>
+              <TableData>
+                    {employees.lastName}
+              </TableData>
+              <TableData>
+                    {employees.id}
+              </TableData>
+              <TableData>
+                    {employees.department}
+              </TableData>
             </TableRow>
+          ) : (
+            <TableRow>
+              <TableData>
+              Nothin
+              </TableData>
+            </TableRow>
+          )}
+        </Table> */}
+        <Table>
+                {employees.map(employee => (
+                  <TableRow>
+                    <TableData>
+                      {employee.firstName}
+                    </TableData>
+                    <TableData>
+                      {employee.lastName}
+                    </TableData>
+                    <TableData>
+                      {employee.id}
+                    </TableData>
+                    <TableData>
+                      {employee.department}
+                    </TableData>
+                  </TableRow>
+                ))}
         </Table>
         </>
     )
