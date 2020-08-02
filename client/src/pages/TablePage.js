@@ -69,7 +69,6 @@ function TablePage() {
       <Table>
         {employees.map((employee) => (
           <TableRow key={employee._id}>
-            <TableData>{employee._id}</TableData>
             <TableData>{employee.firstName}</TableData>
             <TableData>{employee.lastName}</TableData>
             <TableData>{employee.id}</TableData>

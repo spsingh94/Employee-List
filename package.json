@@ -21,10 +21,9 @@
     "react-scripts": "3.4.1"
   },
   "scripts": {
-    "start": "cd client && npm run start",
+    "start": "concurrently \"nodemon server.js\" \"npm run client\"",
+    "client": "cd client && npm run start",
     "seed": "node scripts/seedDB.js",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
     "install": "cd client && npm install",
     "build": "cd client && npm run build",
     "heroku-postbuild": "npm run build"
