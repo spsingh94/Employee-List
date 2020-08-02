@@ -23,7 +23,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "install": "cd client && npm install",
-    "build": "cd client && npm run build",
+    "build": "cdclient && npm run build",
     "heroku-postbuild": "npm run build"
   },
   "eslintConfig": {
